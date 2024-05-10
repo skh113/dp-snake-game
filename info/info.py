@@ -2,7 +2,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 # Read the CSV file
-data = pd.read_csv('game info.csv')
+data = pd.read_csv('equal.csv')
 
 # Drop the 'Record' column
 data.drop(columns=['Record'], inplace=True)
@@ -22,7 +22,7 @@ plt.xticks(rotation=45)
 plt.tight_layout()
 
 # Export the plot as a PNG file
-plt.savefig('reward.png')
+plt.savefig('equal.png')
 
 # Show the plot
 plt.show()
