@@ -75,7 +75,7 @@ class SnakeGameAI:
         # 4. check if game over
         game_over = False
         reward = 0
-        if self._is_collision() or self.frame_iteration > self.FRAME_ITERATION_THRESHOLD:
+        if self.is_collision() or self.frame_iteration > self.FRAME_ITERATION_THRESHOLD:
             game_over = True
             reward = -10
             return reward, game_over, self.score
@@ -94,7 +94,7 @@ class SnakeGameAI:
         # 7. return game over and score
         return reward, game_over, self.score
 
-    def _is_collision(self, point=None) -> bool:
+    def is_collision(self, point=None) -> bool:
         if point is None:
             point = self.head
         # hits boundary
