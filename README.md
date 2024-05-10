@@ -39,7 +39,7 @@ To run the Snake game with dynamic programming and reinforcement learning, you'l
 
 4. Run the game:
    ```bash
-   pip install -r requirements.txt
+   python agent.py
    ```
 
 ## Contributing
