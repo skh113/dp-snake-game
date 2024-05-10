@@ -7,7 +7,7 @@ import os
 
 class LinearQNet(nn.Module):
     def __init__(self, input_size, hidden_size, output_size, *args, **kwargs):
-        super.__init__()
+        super().__init__()
         self.linear1 = nn.Linear(input_size, hidden_size)
         self.linear2 = nn.Linear(hidden_size, output_size)
 

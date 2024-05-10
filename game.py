@@ -28,8 +28,6 @@ class Direction(Enum):
 
 class SnakeGameAI:
     def __init__(self, w=640, h=480):
-        self.FRAME_ITERATION_THRESHOLD = 100 * len(self.snake)
-
         self.w = w
         self.h = h
 
@@ -75,7 +73,7 @@ class SnakeGameAI:
         # 4. check if game over
         game_over = False
         reward = 0
-        if self.is_collision() or self.frame_iteration > self.FRAME_ITERATION_THRESHOLD:
+        if self.is_collision() or self.frame_iteration > 100 * len(self.snake):
             game_over = True
             reward = -10
             return reward, game_over, self.score

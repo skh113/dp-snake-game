@@ -6,7 +6,7 @@ from collections import deque
 from model import LinearQNet, QTrainer
 from helper import plot
 
-MAX_MEMORY = 1_000_000
+MAX_MEMORY = 100_000
 BATCH_SIZE = 1_000
 LEARNING_RATE = 0.001
 
