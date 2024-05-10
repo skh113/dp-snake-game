@@ -2,7 +2,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 # Read the CSV file
-data = pd.read_csv('equal.csv')
+data = pd.read_csv('punishment.csv')
 
 # Drop the 'Record' column
 data.drop(columns=['Record'], inplace=True)
@@ -22,7 +22,7 @@ plt.xticks(rotation=45)
 plt.tight_layout()
 
 # Export the plot as a PNG file
-plt.savefig('equal.png')
+plt.savefig('punishment.png')
 
 # Show the plot
 plt.show()
