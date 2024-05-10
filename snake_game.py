@@ -51,14 +51,14 @@ class SnakeGame:
         self.food = None
         self._place_food()
 
-    def _place_food(self):
+    def _place_food(self) -> None:
         x = random.randint(0, (self.w - BLOCK_SIZE) // BLOCK_SIZE) * BLOCK_SIZE
         y = random.randint(0, (self.h - BLOCK_SIZE) // BLOCK_SIZE) * BLOCK_SIZE
         self.food = Point(x, y)
         if self.food in self.snake:
             self._place_food()
 
-    def play_step(self):
+    def play_step(self) -> tuple[bool, int]:
         # 1. collect user input
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -97,7 +97,7 @@ class SnakeGame:
         # 6. return game over and score
         return game_over, self.score
 
-    def _is_collision(self):
+    def _is_collision(self) -> bool:
         # hits boundary
         if self.head.x > self.w - BLOCK_SIZE or self.head.x < 0 or self.head.y > self.h - BLOCK_SIZE or self.head.y < 0:
             return True
@@ -107,7 +107,7 @@ class SnakeGame:
 
         return False
 
-    def _update_ui(self):
+    def _update_ui(self) -> None:
         self.display.fill(BLACK)
 
         for pt in self.snake:
@@ -120,7 +120,7 @@ class SnakeGame:
         self.display.blit(text, [0, 0])
         pygame.display.flip()
 
-    def _move(self, direction):
+    def _move(self, direction) -> None:
         x = self.head.x
         y = self.head.y
         if direction == Direction.RIGHT:
