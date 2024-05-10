@@ -4,6 +4,7 @@ import numpy as np
 from game import SnakeGameAI, Direction, Point
 from collections import deque
 from model import LinearQNet, QTrainer
+from helper import plot
 
 MAX_MEMORY = 1_000_000
 BATCH_SIZE = 1_000
@@ -134,7 +135,12 @@ def train():
                 agent.model.save()
 
             print(f"Game: {agent.games_number}, Score: {score}, Record: {record}")
-            # plot
+            plot_scores.append(score)
+            total_score += score
+            mean_score = total_score / agent.games_number
+            plot_mean_scores.append(mean_score)
+
+            plot(plot_scores, plot_mean_scores)
 
 
 if __name__ == "__main__":
