@@ -15,7 +15,7 @@ BLUE1 = (0, 0, 255)
 BLUE2 = (0, 100, 255)
 BLACK = (0, 0, 0)
 
-BLOCK_SIZE = 20
+BLOCK_SIZE = 40
 SPEED = 100
 
 
@@ -73,7 +73,13 @@ class SnakeGameAI:
         # 4. check if game over
         game_over = False
         reward = 0
-        if self.is_collision() or self.frame_iteration > 100 * len(self.snake):
+
+        if self.frame_iteration > 100 * len(self.snake):
+            game_over = True
+            reward = -5
+            return reward, game_over, self.score
+
+        if self.is_collision():
             game_over = True
             reward = -1
             return reward, game_over, self.score
